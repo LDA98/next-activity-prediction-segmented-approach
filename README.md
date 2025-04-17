@@ -71,13 +71,13 @@ Questo progetto implementa un approccio segmentato per la previsione della pross
   ```
     
 
-3.Inserire i modelli ottenuti nella cartella corrispondente all’event-log dentro test-nap-segmented-approach/[`Helpdesk_1/` `InternationalDeclaretions_1/`].
+3. Inserire i modelli ottenuti nella cartella corrispondente all’event-log dentro test-nap-segmented-approach/[`Helpdesk_1/` `InternationalDeclaretions_1/`].
 
 
-4.Configurare il file test-nap-segmented-approach/config.py impostando il parametro MODELS_PATH.
+4. Configurare il file test-nap-segmented-approach/config.py impostando il parametro MODELS_PATH.
 
 
-5.Eseguire il test:
+5. Eseguire il test:
 
   ```
   python test/test_models.py
