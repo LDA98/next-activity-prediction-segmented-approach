@@ -13,9 +13,10 @@ Questo progetto implementa un approccio segmentato per la previsione della pross
   
   - `test-nap-segmented-approach/`  
     Contiene:
-    - le sottocartelle `Helpdesk_1/` e `InternationalDeclaretions_1/`, in cui inserire i modelli addestrati da testare.
+    - devono essere create le sottocartelle `Helpdesk_1/` e `InternationalDeclaretions_1/`, in cui inserire i modelli addestrati da testare.
     - `config.py`: specificare in `MODELS_PATH` il nome della sottocartella da testare.
     - `test_models.py`: esegue il test dei modelli e stampa le metriche finali: `f1_weighted`, `accuracy`, e la matrice di confusione.
+      
   
   - `requirements.txt`: contiene le librerie necessarie per eseguire il progetto.
   
