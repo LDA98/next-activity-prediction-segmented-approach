@@ -70,9 +70,12 @@ La directory principale è così organizzata:
       python train/train_model.py
       ```
     
+
   3.Inserire i modelli ottenuti nella cartella corrispondente all’event-log dentro test-nap-segmented-approach/[`Helpdesk_1/` `InternationalDeclaretions_1/`].
   
+  
   4.Configurare il file test-nap-segmented-approach/config.py impostando il parametro MODELS_PATH.
+  
   
   5.Eseguire il test:
 
@@ -80,7 +83,8 @@ La directory principale è così organizzata:
         python test/test_models.py
         ```
   
-  Prima di procedere bisogna inserire il nome completo di estensione del dataset .pt che si vuole testare. Questo va fatto nel file `test_models.py`:
+    Prima di procedere bisogna inserire il nome completo di estensione del dataset .pt che si vuole testare. Questo va fatto nel file `test_models.py`:
+
   
         ```
         dataset_path = join(DATASET_PATH, '') # .pt
