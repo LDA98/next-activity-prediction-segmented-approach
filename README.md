@@ -35,7 +35,7 @@ Questo progetto implementa un approccio segmentato per la previsione della pross
     
 ## ▶️ Esecuzione
 
-1. Generare i dataset di prefissi con:
+**1. Generare i dataset di prefissi con:**
 
   ```
   python train/0_prefix_generations.py
@@ -64,20 +64,20 @@ Questo progetto implementa un approccio segmentato per la previsione della pross
     MERGE_LEN = []
     ```
 
-2. Addestrare i modelli:
+**2. Addestrare i modelli:**
 
   ```
   python train/train_model.py
   ```
     
 
-3. Inserire i modelli ottenuti nella cartella corrispondente all’event-log dentro test-nap-segmented-approach/[`Helpdesk_1/` `InternationalDeclaretions_1/`].
+**3. Inserire i modelli ottenuti nella cartella corrispondente all’event-log dentro test-nap-segmented-approach/[`Helpdesk_1/` `InternationalDeclaretions_1/`].**
 
 
-4. Configurare il file test-nap-segmented-approach/config.py impostando il parametro MODELS_PATH.
+**4. Configurare il file test-nap-segmented-approach/config.py impostando il parametro MODELS_PATH.**
 
 
-5. Eseguire il test:
+**5. Eseguire il test:**
 
   ```
   python test/test_models.py
