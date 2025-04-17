@@ -41,47 +41,47 @@ La directory principale è così organizzata:
     python train/0_prefix_generations.py
     ```
     
-Prima di procedere bisogna inserire il percorso e il nome del processo in formato `.g` che si vuole analizzare. Questo va fatto nel file `0_prefix_generations.py`:
+    Prima di procedere bisogna inserire il percorso e il nome del processo in formato `.g` che si vuole analizzare. Questo va fatto nel file `0_prefix_generations.py`:
 
-      ```python
+      ```
       g_path = ''  # Inserire il percorso della cartella contenente il file .g
       g_final_path = join(g_path, '')  # Inserire il nome del file .g
       ```
-È possibile modificare nella funzione `find_balanced_cutoff(prefix_counts, threshold_ratio=0.7)` il valore del parametro `threshold_ratio` per definire la lunghezza `l` a partire dalla quale tutte le lunghezze maggiori o uguali saranno aggregate in un unico gruppo.
+    È possibile modificare nella funzione `find_balanced_cutoff(prefix_counts, threshold_ratio=0.7)` il valore del parametro `threshold_ratio` per definire la lunghezza `l` a partire dalla quale tutte le lunghezze maggiori o uguali saranno aggregate in un unico gruppo.
+  
+    Inoltre, per uno sviluppo futuro, è possibile specificare manualmente le aggregazioni desiderate nel file `config.py` tramite la variabile `MERGE_LEN`, (il dataset    risultante sarà ordinato per lunghezza).  
+    Ad esempio:
+  
+      ```
+      """
+      Configurazione che specifica quali lunghezze unire
+      MERGE_LEN = [
+          [2, 3],        # Unire i prefissi di lunghezze 2 e 3
+          [4, 5, 6]      # Unire i prefissi di lunghezze 4, 5 e 6
+      ]
+      Risultato -> {[2, 3], [4, 5, 6], [7], [8+]}
+      """
+      MERGE_LEN = []
+      ```
 
-Inoltre, per uno sviluppo futuro, è possibile specificare manualmente le aggregazioni desiderate nel file `config.py` tramite la variabile `MERGE_LEN`, (il dataset    risultante sarà ordinato per lunghezza).  
-Ad esempio:
+  2. Addestrare i modelli:
 
-```
-"""
-Configurazione che specifica quali lunghezze unire
-MERGE_LEN = [
-    [2, 3],        # Unire i prefissi di lunghezze 2 e 3
-    [4, 5, 6]      # Unire i prefissi di lunghezze 4, 5 e 6
-]
-Risultato -> {[2, 3], [4, 5, 6], [7], [8+]}
-"""
-MERGE_LEN = []
-```
-
-2. Addestrare i modelli:
-
-    ```
-    python train/train_model.py
-    ```
+      ```
+      python train/train_model.py
+      ```
     
-3.Inserire i modelli ottenuti nella cartella corrispondente all’event-log dentro test-nap-segmented-approach/[`Helpdesk_1/` `InternationalDeclaretions_1/`].
+  3.Inserire i modelli ottenuti nella cartella corrispondente all’event-log dentro test-nap-segmented-approach/[`Helpdesk_1/` `InternationalDeclaretions_1/`].
+  
+  4.Configurare il file test-nap-segmented-approach/config.py impostando il parametro MODELS_PATH.
+  
+  5.Eseguire il test:
 
-4.Configurare il file test-nap-segmented-approach/config.py impostando il parametro MODELS_PATH.
-
-5.Eseguire il test:
-
-    ```
-    python test/test_models.py
-    ```
-
-Prima di procedere bisogna inserire il nome completo di estensione del dataset .pt che si vuole testare. Questo va fatto nel file `test_models.py`:
-
-      ```
-      dataset_path = join(DATASET_PATH, '') # .pt
-      ```
+        ```
+        python test/test_models.py
+        ```
+  
+  Prima di procedere bisogna inserire il nome completo di estensione del dataset .pt che si vuole testare. Questo va fatto nel file `test_models.py`:
+  
+        ```
+        dataset_path = join(DATASET_PATH, '') # .pt
+        ```
