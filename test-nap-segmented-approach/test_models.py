@@ -137,8 +137,7 @@ def plot_confusion_matrix(reals, predictions, dataset_path):
     plt.close('all')
 
 def test_models():
-    dataset_path = join(DATASET_PATH, '')
-    ds_name = split(dataset_path)[1].split('.')[0]
+    dataset_path = join(DATASET_PATH, '') # .pt
     dataset = PrefixIGs(dataset_path)
     test_dataset = [data for data in dataset if data.set == 'test']
     test_loader = DataLoader(dataset=test_dataset, batch_size=64)
